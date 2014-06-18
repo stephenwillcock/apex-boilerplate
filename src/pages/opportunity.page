@@ -1,0 +1,17 @@
+<apex:page standardController="Opportunity" tabStyle="Opportunity" showHeader="true" sidebar="true">
+	<apex:sectionHeader title="{!$ObjectType.Opportunity.Label} Edit" subtitle="{!Opportunity.Name}" />
+	<apex:form >
+	<apex:pageBlock title="MyPageBlockTitle">
+		<apex:pageMessages />
+		<apex:pageBlockButtons >
+			<apex:commandButton action="{!save}" value="Save"/>
+			<apex:commandButton action="{!cancel}" value="Cancel"/>
+		</apex:pageBlockButtons>
+		<apex:pageBlockSection collapsible="false" columns="2" title="MyPageBlockSection">
+			<apex:inputField value="{!opportunity.name}" label="New Name"/>
+			<apex:outputField value="{!opportunity.name}"/>
+			<apex:inputField value="{!opportunity.stageName}"/>
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,21 @@
+<apex:page standardController="Opportunity" recordSetVar="opportunities">
+	<apex:sectionHeader title="{!$ObjectType.Opportunity.LabelPlural}" subtitle="My List Activity" />
+	<apex:form >
+	<apex:pageBlock title="MyPageBlockTitle">
+		<apex:pageMessages />
+		<apex:pageBlockButtons >
+			<apex:commandButton action="{!save}" value="Save"/>
+			<apex:commandButton action="{!cancel}" value="Cancel"/>
+		</apex:pageBlockButtons>
+		<apex:pageBlockTable value="{!opportunities}" var="opportunity">
+            <apex:column value="{!opportunity.name}"/>
+            <apex:column headerValue="{!$ObjectType.Opportunity.Fields.Name.Label}">
+                <apex:inputField value="{!opportunity.name}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Opportunity.Fields.StageName.Label}">
+                <apex:inputField value="{!opportunity.stageName}"/>
+            </apex:column>
+    	</apex:pageBlockTable>   
+	</apex:pageBlock>
+	</apex:form>
+</apex:page>
