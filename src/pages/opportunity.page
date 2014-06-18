@@ -1,4 +1,4 @@
-<apex:page standardController="Opportunity" tabStyle="Opportunity" showHeader="true" sidebar="true">
+<apex:page standardController="Opportunity">
 	<apex:sectionHeader title="{!$ObjectType.Opportunity.Label} Edit" subtitle="{!Opportunity.Name}" />
 	<apex:form >
 	<apex:pageBlock title="MyPageBlockTitle">
