@@ -1,0 +1,16 @@
+<project name="Salesforce Deploy" default="check" basedir="." xmlns:sf="antlib:com.salesforce">
+
+    <property file="build.properties"/>
+    <property environment="env"/>
+
+    <target name="deploy">  
+    	<typedef uri="antlib:com.salesforce" resource="com/salesforce/antlib.xml" classpath="${basedir}/lib/ant-salesforce.jar"/>
+      <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="${basedir}/../src"/>
+    </target>    
+    
+    <target name="check">  
+      <typedef uri="antlib:com.salesforce" resource="com/salesforce/antlib.xml" classpath="${basedir}/lib/ant-salesforce.jar"/>
+      <sf:deploy username="${sf.checkusername}" password="${sf.checkpassword}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="${basedir}/../src" checkOnly="true"/>
+    </target>    
+
+</project>
