@@ -1,0 +1,31 @@
+<apex:page controller="VisualforceController">
+	<apex:sectionHeader title="My Title" subtitle="My Subtitle" />
+	<apex:form >
+	<apex:pageBlock title="MyPageBlockTitle">
+		<apex:pageMessages />
+		<apex:pageBlockButtons >
+			<apex:commandButton action="{!doSomething}" value="Do Something"/>
+		</apex:pageBlockButtons>
+		<apex:pageBlockSection >
+			<apex:pageBlockSectionItem>
+				<apex:outputText value="A"/>
+				<apex:outputText value="B"/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem>
+				<apex:outputText value="C"/>
+				<apex:outputText value="D"/>
+			</apex:pageBlockSectionItem>
+		</apex:pageBlockSection>
+		<apex:pageBlockTable value="{!LineItems}" var="line">
+            <apex:column headerValue="Column 1" value="{!line.StringProperty}"/>
+            <apex:column headerValue="Selected">
+                <apex:inputCheckbox value="{!line.Selected}"/>
+            </apex:column>
+            <apex:column value="{!line.OpportunityProperty.Name}"/>
+            <apex:column headerValue="New Opportunity Name">
+                <apex:inputField value="{!line.OpportunityProperty.Name}"/>
+            </apex:column>
+    	</apex:pageBlockTable>
+	</apex:pageBlock>
+	</apex:form>
+</apex:page>
